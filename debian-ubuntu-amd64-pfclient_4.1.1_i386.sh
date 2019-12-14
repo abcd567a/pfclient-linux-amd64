@@ -24,7 +24,7 @@ echo "Writing code to config file pfclient-config.json"
 {}
 EOM
 
-sudo chmod 666 ${CONFIG_FILE}
+##sudo chmod 666 ${CONFIG_FILE}
 sudo chown pf ${CONFIG_FILE}
 
 echo "Creating Service file pfclient.service"
