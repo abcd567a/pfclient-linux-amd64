@@ -12,6 +12,9 @@ sudo cp ${RESOURCE_FOLDER}/pfclient /usr/bin/pfclient
 echo -e "\e[32m installing libc6-i386 required by pfclient i386 binary\e[39m"
 sudo apt-get install libc6-i386  
 
+echo "Creating user pf to run service"
+sudo useradd --system pf
+
 echo "Creating config file pfclient-config.json"
 CONFIG_FILE=/etc/pfclient-config.json
 sudo touch ${CONFIG_FILE}
@@ -22,9 +25,7 @@ echo "Writing code to config file pfclient-config.json"
 EOM
 
 sudo chmod 666 ${CONFIG_FILE}
-
-echo "Creating user pf to run service"
-sudo useradd --system pf
+sudo chown pf ${CONFIG_FILE}
 
 echo "Creating Service file pfclient.service"
 SERVICE_FILE=/lib/systemd/system/pfclient.service
@@ -55,7 +56,6 @@ EOM
 
 sudo chmod 644 ${SERVICE_FILE}
 sudo systemctl enable pfclient
-sudo systemctl start pfclient
 sudo systemctl restart pfclient
 
 echo " "
