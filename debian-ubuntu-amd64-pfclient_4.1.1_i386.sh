@@ -56,6 +56,7 @@ EOM
 sudo chmod 644 ${SERVICE_FILE}
 sudo systemctl enable pfclient
 sudo systemctl start pfclient
+sudo systemctl restart pfclient
 
 echo " "
 echo " "
