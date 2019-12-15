@@ -28,7 +28,7 @@ echo "downloading config file pfclient-config.json"
 sudo wget -O /etc/pfclient-config.json https://raw.githubusercontent.com/abcd567a/pfclient-linux-amd64/master/pfclient-config.json
 sudo chmod 666 /etc/pfclient-config.json
 
-echo "Downloading init file pfclient.sh to folder /etc/init.d "
+echo "Downloading init file pfclient to folder /etc/init.d "
 
 sudo wget -O /etc/init.d/pfclient https://raw.githubusercontent.com/abcd567a/pfclient-linux-amd64/master/pfclient
 sudo chmod +x /etc/init.d/pfclient
