@@ -30,7 +30,7 @@ sudo chmod 666 /etc/pfclient-config.json
 
 echo "Downloading init file pfclient.sh to folder /etc/init.d "
 
-sudo wget -O /etc/init.d/pfclient https://raw.githubusercontent.com/abcd567a/pfclient-linux-amd64/master/pfclient.sh
+sudo wget -O /etc/init.d/pfclient https://raw.githubusercontent.com/abcd567a/pfclient-linux-amd64/master/pfclient
 sudo chmod +x /etc/init.d/pfclient
 sudo update-rc.d pfclient defaults
 sudo update-rc.d pfclient enable
