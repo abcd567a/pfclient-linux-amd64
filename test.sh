@@ -12,17 +12,21 @@ sudo cp ${RESOURCE_FOLDER}/pfclient /usr/bin/pfclient
 echo -e "\e[32m installing libc6-i386 required by pfclient i386 binary\e[39m"
 sudo apt-get install libc6-i386  
 
-echo "Creating config file pfclient-config.json"
-CONFIG_FILE=/etc/pfclient-config.json
-sudo touch ${CONFIG_FILE}
-sudo chmod 777 ${CONFIG_FILE}
-echo "Writing code to config file pfclient-config.json"
-/bin/cat <<EOM >${CONFIG_FILE}
-{}
-EOM
+#echo "Creating config file pfclient-config.json"
+#CONFIG_FILE=/etc/pfclient-config.json
+#sudo touch ${CONFIG_FILE}
+#sudo chmod 777 ${CONFIG_FILE}
+#echo "Writing code to config file pfclient-config.json"
+#/bin/cat <<EOM >${CONFIG_FILE}
+#{}
+#EOM
 
-sudo chmod 666 ${CONFIG_FILE}
+#sudo chmod 666 ${CONFIG_FILE}
 
+
+echo "downloading config file pfclient-config.json"
+sudo wget -O /etc/pfclient-config.json https://raw.githubusercontent.com/abcd567a/pfclient-linux-amd64/master/pfclient-config.json
+sudo chmod 666 /etc/pfclient-config.json
 
 echo "Downloading init file pfclient.sh to folder /etc/init.d "
 
