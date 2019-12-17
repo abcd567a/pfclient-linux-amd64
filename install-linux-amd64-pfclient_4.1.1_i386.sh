@@ -9,9 +9,6 @@ sudo wget -O ${RESOURCE_FOLDER}/${BINARY_VERSION}.tar.gz "http://client.planefin
 sudo tar zxvf  ${RESOURCE_FOLDER}/${BINARY_VERSION}.tar.gz -C ${RESOURCE_FOLDER}
 sudo cp ${RESOURCE_FOLDER}/pfclient /usr/bin/pfclient
 
-echo -e "\e[32m installing libc6-i386 required by pfclient i386 binary\e[39m"
-sudo apt-get install libc6-i386  
-
 echo "Creating user pf to run service"
 sudo useradd --system pf
 
