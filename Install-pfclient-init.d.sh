@@ -8,34 +8,24 @@ sudo apt install wget
 sudo wget -O ${RESOURCE_FOLDER}/${BINARY_VERSION}.tar.gz "http://client.planefinder.net/${BINARY_VERSION}.tar.gz"
 sudo tar zxvf  ${RESOURCE_FOLDER}/${BINARY_VERSION}.tar.gz -C ${RESOURCE_FOLDER}
 sudo cp ${RESOURCE_FOLDER}/pfclient /usr/bin/pfclient
+sudo chmod +x /usr/bin/pfclient
 
-echo -e "\e[32m installing libc6-i386 required by pfclient i386 binary\e[39m"
-sudo apt-get install libc6-i386  
+echo "Creating log folder ...."
+sudo mkdir -p /var/log/pfclient
 
-#echo "Creating config file pfclient-config.json"
-#CONFIG_FILE=/etc/pfclient-config.json
-#sudo touch ${CONFIG_FILE}
-#sudo chmod 777 ${CONFIG_FILE}
-#echo "Writing code to config file pfclient-config.json"
-#/bin/cat <<EOM >${CONFIG_FILE}
-#{}
-#EOM
-
-#sudo chmod 666 ${CONFIG_FILE}
-
-
-echo "downloading config file pfclient-config.json"
-sudo wget -O /etc/pfclient-config.json https://raw.githubusercontent.com/abcd567a/pfclient-linux-amd64/master/pfclient-config.json
+echo "downloading and installing config file pfclient-config.json"
+sudo wget -O ${RESOURCE_FOLDER}/pfclient-config.json https://raw.githubusercontent.com/abcd567a/pfclient-linux-amd64/master/pfclient-config.json
+sudo cp ${RESOURCE_FOLDER}/pfclient-config.json /etc/pfclient-config.json
 sudo chmod 666 /etc/pfclient-config.json
 
-echo "Downloading init file pfclient to folder /etc/init.d "
+echo "Downloading and installng init file pfclient"
 
-sudo wget -O /etc/init.d/pfclient https://raw.githubusercontent.com/abcd567a/pfclient-linux-amd64/master/pfclient
+sudo wget -O ${RESOURCE_FOLDER}/pfclient https://raw.githubusercontent.com/abcd567a/pfclient-linux-amd64/master/pfclient
+sudo cp ${RESOURCE_FOLDER}/pfclient /etc/init.d/pfclient
 sudo chmod +x /etc/init.d/pfclient
-sudo update-rc.d pfclient defaults
+sudo update-rc.d -f pfclient defaults
 sudo update-rc.d pfclient enable
-
-sudo systemctl restart pfclient
+sudo service pfclient start
 
 echo " "
 echo " "
