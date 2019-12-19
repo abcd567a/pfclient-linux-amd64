@@ -29,8 +29,8 @@ SERVICE_FILE=/lib/systemd/system/pfclient.service
 sudo touch ${SERVICE_FILE}
 sudo chmod 777 ${SERVICE_FILE}
 /bin/cat <<EOM >${SERVICE_FILE}
-# planefinder uploader service for systemd
-# install in /lib/systemd/system
+\# planefinder uploader service for systemd
+\# install in /lib/systemd/system
 
 [Unit]
 Description=Planefinder Feeder
