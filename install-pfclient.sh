@@ -39,8 +39,8 @@ After=network-online.target time-sync.target
 [Service]
 User=pfc
 RuntimeDirectory=planefinder
-ExecStartPre=-/bin/mkdir -p /var/log/pfclient
-ExecStartPre=-/bin/chown pfc /var/log/pfclient
+ExecStartPre=-/usr/bin/mkdir -p /var/log/pfclient
+ExecStartPre=-/usr/bin/chown pfc /var/log/pfclient
 ExecStart=/usr/bin/planefinder ExecStart=/usr/bin/pfclient --config_path=/etc/pfclient-config.json --log_path=/var/log/pfclient $ 2>/var/log/pfclient/error.log   
 ExecReload=/bin/kill -HUP $MAINPID
 Type=simple
