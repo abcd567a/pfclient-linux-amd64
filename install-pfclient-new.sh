@@ -42,6 +42,7 @@ SyslogIdentifier=pfclient
 RuntimeDirectory=pfclient
 RuntimeDirectoryMode=0755
 User=pfc
+PermissionsStartOnly=true
 ExecStartPre=-/bin/mkdir -p /var/log/pfclient
 ExecStartPre=-/bin/chown pfc /var/log/pfclient
 ExecStart=/usr/bin/pfclient --config_path=/etc/pfclient-config.json --log_path=/var/log/pfclient $ 2>/var/log/pfclient/error.log
