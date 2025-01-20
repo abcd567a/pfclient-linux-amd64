@@ -1,27 +1,27 @@
 #!/bin/bash
 
-BINARY_VERSION=pfclient_4.1.1_i386
-RESOURCE_FOLDER=/usr/share/pfclient
-sudo mkdir ${RESOURCE_FOLDER}
+BINARY_VERSION=pfclient_5.0.161_i386
+ASSETS_FOLDER=/usr/share/pfclient
+sudo mkdir ${ASSETS_FOLDER}
 echo "Downloading i386 binary tarball " ${BINARY_VERSION}.tar.gz "from Planefinder.net"
 sudo apt install wget
-sudo wget -O ${RESOURCE_FOLDER}/${BINARY_VERSION}.tar.gz "http://client.planefinder.net/${BINARY_VERSION}.tar.gz"
-sudo tar zxvf  ${RESOURCE_FOLDER}/${BINARY_VERSION}.tar.gz -C ${RESOURCE_FOLDER}
-sudo cp ${RESOURCE_FOLDER}/pfclient /usr/bin/pfclient
+sudo wget -O ${ASSETS_FOLDER}/${BINARY_VERSION}.tar.gz "http://client.planefinder.net/${BINARY_VERSION}.tar.gz"
+sudo tar zxvf  ${ASSETS_FOLDER}/${BINARY_VERSION}.tar.gz -C ${ASSETS_FOLDER}
+sudo cp ${ASSETS_FOLDER}/pfclient /usr/bin/pfclient
 sudo chmod +x /usr/bin/pfclient
 
 echo "Creating log folder ...."
 sudo mkdir -p /var/log/pfclient
 
 echo "downloading and installing config file pfclient-config.json"
-sudo wget -O ${RESOURCE_FOLDER}/pfclient-config.json https://raw.githubusercontent.com/abcd567a/pfclient-linux-amd64/master/pfclient-config.json
-sudo cp ${RESOURCE_FOLDER}/pfclient-config.json /etc/pfclient-config.json
+sudo wget -O ${ASSETS_FOLDER}/pfclient-config.json https://github.com/abcd567a/pfclient-linux-amd64-i386/raw/master/pfclient-config.json
+sudo cp ${ASSETS_FOLDER}/pfclient-config.json /etc/pfclient-config.json
 sudo chmod 666 /etc/pfclient-config.json
 
 echo "Downloading and installng init file pfclient"
 
-sudo wget -O ${RESOURCE_FOLDER}/pfclient https://raw.githubusercontent.com/abcd567a/pfclient-linux-amd64/master/pfclient
-sudo cp ${RESOURCE_FOLDER}/pfclient /etc/init.d/pfclient
+sudo wget -O ${ASSETS_FOLDER}/pfclient https://github.com/abcd567a/pfclient-linux-amd64-i386/raw/master/pfclient
+sudo cp ${ASSETS_FOLDER}/pfclient /etc/init.d/pfclient
 sudo chmod +x /etc/init.d/pfclient
 sudo update-rc.d -f pfclient defaults
 sudo update-rc.d pfclient enable
