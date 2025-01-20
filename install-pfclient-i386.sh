@@ -1,11 +1,12 @@
 #!/bin/bash
 
-BINARY_VERSION=pfclient_4.1.1_i386
+BINARY_VERSION=pfclient_5.0.161_i386
+DOWNLOAD_LINK=http://client.planefinder.net/
 RESOURCE_FOLDER=/usr/share/pfclient
 sudo mkdir ${RESOURCE_FOLDER}
 echo "Downloading i386 binary tarball " ${BINARY_VERSION}.tar.gz "from Planefinder.net"
 sudo apt install wget
-sudo wget -O ${RESOURCE_FOLDER}/${BINARY_VERSION}.tar.gz "http://client.planefinder.net/${BINARY_VERSION}.tar.gz"
+sudo wget -O ${RESOURCE_FOLDER}/${BINARY_VERSION}.tar.gz "${DOWNLOAD_LINK}/${BINARY_VERSION}.tar.gz"
 sudo tar zxvf  ${RESOURCE_FOLDER}/${BINARY_VERSION}.tar.gz -C ${RESOURCE_FOLDER}
 sudo cp ${RESOURCE_FOLDER}/pfclient /usr/bin/pfclient
 
