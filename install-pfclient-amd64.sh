@@ -2,13 +2,13 @@
 
 BINARY_VERSION=pfclient_5.0.162_amd64
 DOWNLOAD_LINK=http://client.planefinder.net
-RESOURCE_FOLDER=/usr/share/pfclient
-sudo mkdir ${RESOURCE_FOLDER}
+ASSETS_FOLDER=/usr/share/pfclient-assets
+sudo mkdir ${ASSETS_FOLDER}
 echo "Downloading i386 binary tarball " ${BINARY_VERSION}.tar.gz "from Planefinder.net"
 sudo apt install wget
-sudo wget -O ${RESOURCE_FOLDER}/${BINARY_VERSION}.tar.gz "${DOWNLOAD_LINK}/${BINARY_VERSION}.tar.gz"
-sudo tar zxvf  ${RESOURCE_FOLDER}/${BINARY_VERSION}.tar.gz -C ${RESOURCE_FOLDER}
-sudo cp ${RESOURCE_FOLDER}/pfclient /usr/bin/pfclient
+sudo wget -O ${ASSETS_FOLDER}/${BINARY_VERSION}.tar.gz "${DOWNLOAD_LINK}/${BINARY_VERSION}.tar.gz"
+sudo tar zxvf  ${ASSETS_FOLDER}/${BINARY_VERSION}.tar.gz -C ${ASSETS_FOLDER}
+sudo cp ${ASSETS_FOLDER}/pfclient /usr/bin/pfclient
 
 echo "Creating user pfc to run service"
 sudo useradd --system pfc
