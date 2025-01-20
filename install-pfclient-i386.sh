@@ -1,7 +1,7 @@
 #!/bin/bash
 
 BINARY_VERSION=pfclient_5.0.161_i386
-DOWNLOAD_LINK=http://client.planefinder.net/
+DOWNLOAD_LINK=http://client.planefinder.net
 RESOURCE_FOLDER=/usr/share/pfclient
 sudo mkdir ${RESOURCE_FOLDER}
 echo "Downloading i386 binary tarball " ${BINARY_VERSION}.tar.gz "from Planefinder.net"
